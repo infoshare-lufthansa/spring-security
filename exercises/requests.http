@@ -35,3 +35,9 @@ Content-Type: application/json
   "age": 25
 }
 
+###
+POST http://localhost:8080/login?username=user&password=72600bd5-3a66-4501-b529-8dbb32dfbd58
+
+###
+POST http://localhost:8080/logout
+
