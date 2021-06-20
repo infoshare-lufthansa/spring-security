@@ -1,4 +1,4 @@
-package pl.infoshare.security.config;
+package pl.infoshare.security.me;
 
 import lombok.Value;
 
