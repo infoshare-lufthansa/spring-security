@@ -12,10 +12,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/", "/welcome-text", "/login").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/orders")
+                .formLogin().defaultSuccessUrl("/welcome-text")
                 .and()
                 .logout().logoutSuccessUrl("/")
                 .and()
