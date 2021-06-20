@@ -1,0 +1,37 @@
+GET http://localhost:8080/
+
+###
+GET http://localhost:8080/welcome-text
+
+###
+GET http://localhost:8080/orders
+
+###
+GET http://localhost:8080/orders/1
+
+###
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "size": "large",
+  "type":  "Z pieczarkami",
+  "comment": "No"
+}
+
+###
+DELETE http://localhost:8080/orders/1
+
+###
+GET http://localhost:8080/users
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "test",
+  "age": 25
+}
+
