@@ -3,6 +3,7 @@ package pl.infoshare.security.orders;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import pl.infoshare.security.domain.Order;
@@ -26,6 +27,7 @@ public class OrderController {
     }
 
     @GetMapping("/orders/{id}")
+    @PreAuthorize("@orderGuard.canDisplay(principal, #id)")
     public Order getOrderDetails(@PathVariable Integer id) {
         return orderFindDetailsService.findById(id);
     }
@@ -36,6 +38,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/orders/{id}")
+    @PreAuthorize("@orderGuard.canDelete(principal, #id)")
     public void deleteOrder(@PathVariable Integer id) {
         orderDeleteService.deleteOrder(id);
     }

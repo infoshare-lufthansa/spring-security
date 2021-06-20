@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -21,6 +22,10 @@ public class OrderUser implements UserDetails {
     private String password;
     private String role;
     private Integer age;
+
+    public boolean isAdmin() {
+        return Objects.equals(role, "ROLE_ADMIN");
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
