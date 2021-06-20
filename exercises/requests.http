@@ -36,10 +36,13 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/login?username=user&password=user
+GET http://localhost:8080/me
 
 ###
-POST http://localhost:8080/login?username=admin&password=admin
+POST http://localhost:8080/login?username=user@example.com&password=user
+
+###
+POST http://localhost:8080/login?username=admin@example.com&password=admin
 
 ###
 POST http://localhost:8080/logout

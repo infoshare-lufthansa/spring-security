@@ -22,16 +22,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
     }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("{noop}user")
-                .roles()
-                .and()
-                .withUser("admin")
-                .password("{noop}admin")
-                .roles("ADMIN");
-    }
 }

@@ -1,4 +1,5 @@
 drop table if exists orders;
+drop table if exists order_user;
 drop sequence if exists hibernate_sequence;
 
 create table orders
@@ -11,5 +12,14 @@ create table orders
     type    varchar(255)
 );
 
-create sequence hibernate_sequence start with 5;
+create table order_user
+(
+    id       int not null primary key,
+    age      integer,
+    email    varchar(255),
+    role    varchar(255),
+    password varchar(255)
+);
+
+create sequence hibernate_sequence start with 7;
 
