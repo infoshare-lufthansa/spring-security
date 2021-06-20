@@ -1,8 +1,12 @@
 package pl.infoshare.security.orders;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import pl.infoshare.security.domain.Order;
+import pl.infoshare.security.domain.OrderUser;
 
 import java.util.List;
 
@@ -16,8 +20,9 @@ public class OrderController {
     private final OrderFindDetailsService orderFindDetailsService;
 
     @GetMapping("/orders")
-    public List<Order> getOrders() {
-        return orderFindService.findAll();
+    public Page<Order> getOrders(@AuthenticationPrincipal OrderUser orderUser,
+                                 Pageable pageable) {
+        return orderFindService.findAll(orderUser, pageable);
     }
 
     @GetMapping("/orders/{id}")
