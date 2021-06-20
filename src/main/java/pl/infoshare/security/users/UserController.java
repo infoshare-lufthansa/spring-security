@@ -18,12 +18,12 @@ public class UserController {
     private final UserFindService userFindService;
     private final UserCreateService userCreateService;
 
-    @GetMapping("/users")
+    @GetMapping("/admin/users")
     public List<OrderUser> getUsers() {
         return userFindService.findAllUsers();
     }
 
-    @PostMapping("/users")
+    @PostMapping("/admin/users")
     public void createUser(@RequestBody OrderUser user) {
         userCreateService.createUser(user);
     }
