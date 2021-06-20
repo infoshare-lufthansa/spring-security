@@ -23,10 +23,10 @@ Content-Type: application/json
 DELETE http://localhost:8080/orders/1
 
 ###
-GET http://localhost:8080/users
+GET http://localhost:8080/admin/users
 
 ###
-POST http://localhost:8080/users
+POST http://localhost:8080/admin/users
 Content-Type: application/json
 
 {
