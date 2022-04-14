@@ -18,10 +18,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/welcome-text")
-                .and()
-                .logout().logoutSuccessUrl("/")
-                .and()
-                .csrf().disable();
+                .formLogin().disable()
+                .logout().disable()
+                .csrf().disable()
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt().jwtAuthenticationConverter(new JwtConverter()));
     }
 }
