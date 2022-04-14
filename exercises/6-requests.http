@@ -1,0 +1,8 @@
+POST http://localhost:8080/auth/realms/dev/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=xxxx&username=user&password=user&grant_type=password
+
+###
+GET http://localhost:8081/me
+Authorization: Bearer
